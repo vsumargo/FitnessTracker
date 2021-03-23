@@ -34,6 +34,10 @@ const fitnessTracker = new Schema({
             type: Number,
             required: "Enter the number of sets done for this exercise"
         },
+        distance:{
+            type:Number,
+            required: "Enter the total distance you just Ran"
+        },
     }]
 });
 
