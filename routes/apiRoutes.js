@@ -4,7 +4,13 @@ const path = require('path');
 const db = require(path.join(__dirname,'../model'));
 
 router.get('/api/workouts', (req,res) => {
-    db.Workout.find({})
+    db.Workout.aggregate([
+        {
+            $addFields: {
+                totalDuration: {$sum: "$exercises.duration"}
+            }
+        }
+    ])
     .then(workouts => res.json(workouts))
     .catch(err => res.json(err))
 })
