@@ -4,6 +4,8 @@ const db = require('../model')
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/fitnessTracker", {
   useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
   useFindAndModify: false
 });
 
